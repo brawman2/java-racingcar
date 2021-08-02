@@ -1,6 +1,7 @@
 package carrase;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class CarRacingGameUI {
@@ -14,10 +15,18 @@ public class CarRacingGameUI {
 		return sc.nextInt();
 	}
 
-	public void printResult(List<Integer> result) {
-		for(int distance : result) {
-			printCarMileage(distance);
-		}
+	public String[] getCarNames() {
+		Scanner sc = new Scanner(System.in);
+		String inputNames = sc.nextLine();
+		String[] names = inputNames.split(",");
+		return names;
+	}
+
+	public void printResult(Map<String, Integer> result) {
+		result.forEach((name, mileage) -> {
+			System.out.print(name + " : ");
+			printCarMileage(mileage);
+		});
 		System.out.println();
 	}
 
@@ -33,4 +42,6 @@ public class CarRacingGameUI {
 	public void printQuestionOfCarCount() { System.out.println(INTRO_MESSAGE_FOR_GET_CAR_COUNT); }
 
 	public void printQuestionOfGameCount() { System.out.println(INTRO_MESSAGE_FOR_GET_GAME_COUNT); }
+
+	public void printQuestionOfCarName() { System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,)를 기준으로 구분).");}
 }

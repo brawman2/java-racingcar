@@ -1,6 +1,6 @@
 package main;
 
-import java.util.List;
+import java.util.Arrays;
 
 import calculator.Calculator;
 import calculator.CalculcatorUI;
@@ -27,16 +27,16 @@ public class Application {
 	private void runRacingGame() {
 		CarRacingGameUI ui = new CarRacingGameUI();
 
-		ui.printQuestionOfCarCount();
-		CarRasingGame game = new CarRasingGame(ui.getInput());
+		ui.printQuestionOfCarName();
+		CarRasingGame game = new CarRasingGame(Arrays.asList(ui.getCarNames()));
 		ui.printQuestionOfGameCount();
 
 		int countOfGame = ui.getInput();
 
 		ui.printMessageOfGameResult();
 		for(int i = 0; i < countOfGame; i++) {
-			List<Integer> result = game.start();
-			ui.printResult(result);
+			game.start();
+			ui.printResult(game.getGameResult());
 		}
 	}
 }
