@@ -3,9 +3,14 @@ package racingcar;
 import java.util.Objects;
 
 public class CarMileage {
+	public static final String MILEAGE_MINIMUM_CONDITION_MESSAGE = "0보다 작을 수 없습니다.";
+	public static final int MILEAGE_MINIMUM_CONDITION = 0;
 	private int mileage;
 
 	public CarMileage(int mileage) {
+		if(mileage < MILEAGE_MINIMUM_CONDITION) {
+			throw new IllegalStateException(MILEAGE_MINIMUM_CONDITION_MESSAGE);
+		}
 		this.mileage = mileage;
 	}
 

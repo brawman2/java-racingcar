@@ -33,6 +33,6 @@ public class CarTest {
 		assertThatThrownBy(() -> {
 			Car car = new Car("5자를초과함");
 		}).isExactlyInstanceOf(IllegalArgumentException.class)
-			.hasMessage(CarName.NAME_CORRECT_CONDITION);
+			.hasMessage(CarName.NAME_INCORRECT_MESSAGE);
 	}
 }
